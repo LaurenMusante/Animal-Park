@@ -13,14 +13,25 @@ namespace Sanctuary
             Animal Petunia = new Animal ("Petunia", "panda", "7", "she/her", "controlling, bamboo hog");
             Animal Sal = new Animal ("Sal", "sloth", "4", "they/them", "slow and friendly");
 
-            List<Animal> Animals = new List<Animal> () { Georry, Petunia, Sal};
+             public List<Animal> animals = new List<Animal> () { Georry, Petunia, Sal};
+
+             
+             AnimalOnboarding(animals);
 
 
-            Console.WriteLine("Add a new animal? (y/n)");
-            string addAnimal = Console.ReadLine();
 
-            if (addAnimal == "y")
+        }
+
+
+           
+            public static void AnimalOnboarding(List<Animal> animals)
             {
+                 Console.WriteLine("Add a new animal? (y/n)");
+                string addAnimal = Console.ReadLine();
+            if (addAnimal == "y" || addAnimal == "Y")
+            {
+               
+
                 Console.WriteLine("What species?");
                 string addSpecies = Console.ReadLine();
 
@@ -37,12 +48,19 @@ namespace Sanctuary
                 string addName = Console.ReadLine();
 
                  Animal constructorAnimal = new Animal (addName, addSpecies, addAge, addPronouns, addDescription);
-                 Animals.Add(constructorAnimal);
 
+               
+                 animals.Add(constructorAnimal);
 
                 Console.WriteLine("Is this correct?");
                 Console.WriteLine(constructorAnimal.GetName());
-
+                Console.WriteLine("Here's the updated list of animals:");
+                
+                foreach (Animal creature in animals)
+                {
+                Console.WriteLine(creature.GetName());
+                }
+                AnimalOnboarding();
             }
             else
             {
@@ -50,9 +68,12 @@ namespace Sanctuary
                 Console.WriteLine("Fine then.");
                 
             }
+            }
 
 
 
-        }
+        
+    
+  
     }
 }
